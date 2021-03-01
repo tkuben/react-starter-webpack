@@ -15,7 +15,7 @@ const common = require("./webpack-common-config.js");
 module.exports = merge(common, {
   entry: {
     // Split vendor code into separate bundles
-    vendor: ["react"],
+    vendor: ["react", "react-dom", "axios", "redux", "react-redux", "redux-thunk"],
     app: paths.appIndexJs
   },
   mode: "production",

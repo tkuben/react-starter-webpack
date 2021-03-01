@@ -15,5 +15,6 @@ module.exports = {
   appConfig: resolveApp("config"), // App config files
   appHtml: resolveApp("src/index.html"),
   appIndexJs: resolveApp("src/index.jsx"), // Main entry point
-  appSrc: resolveApp("src") // App source
+  appSrc: resolveApp("src"), // App source
+  appReducers: resolveApp("src/redux/reducers"), // App source
 };

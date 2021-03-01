@@ -24,6 +24,9 @@ module.exports = {
     alias: {
       Components: path.resolve(paths.appSrc, "components"),
       Containers: path.resolve(paths.appSrc, "containers"),
+      Redux: path.resolve(paths.appSrc, "redux"),
+      Reducers: path.resolve(paths.appSrc, "redux", "reducers"),
+      Actions: path.resolve(paths.appSrc, "redux", "actions"),
       Utils: path.resolve(paths.appSrc, "utils")
     }
   },
