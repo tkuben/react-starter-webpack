@@ -1,6 +1,5 @@
 # Bootstrap React Webpack configuration.
-
-## Table of Contents
+I use the following repo to fork a react application. Will be adding Gatsby & GraphQL support soon.
 
 ## Commands
 ### Dev Build
