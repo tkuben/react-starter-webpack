@@ -8,6 +8,12 @@ The following will run in Hot Module Reload mode using webpack dev server. Withi
 npm run start:dev
 ```
 
+For Authentication with Facebook you do need to have an https local development. For this I use "ngrok". To run simply install ngrok and run the following command: 
+```
+ngrok http 7070 -host-header="localhost:7070"
+```
+Make sure the https version of the url is allowed in the Client OAuth Settings within Facebook
+
 ### Production Build
 The following will build the files neccessary to push to production. The files will be generated in the build folder. 
 ```
@@ -20,3 +26,12 @@ Once you have generated the build files, you can test out the application using 
 cd build/
 python -m http.server 8000 --bind 127.0.0.1
 ```
+
+### Environment file
+Configurations are handled through dotenv-webpack. Create .env file at the root folder with the following configurations
+
+API_URL=http://localhost:8000/api/v1/
+API_CLIENT_ID=<application client id from api>
+API_CLIENT_SECRET=<application client secret from api>
+FB_APP_ID=<facebook app id>
+GOOGLE_CLIENT_ID=<google client id>

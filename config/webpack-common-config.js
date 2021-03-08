@@ -4,6 +4,7 @@
 // is shared between development and production builds.
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 const path = require("path");
 
 const paths = require("./paths");
@@ -13,7 +14,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml
-    })
+    }),
+    new Dotenv()
   ],
   resolve: {
     // File extensions. Add others and needed (e.g. scss, json)
@@ -29,7 +31,8 @@ module.exports = {
       Redux: path.resolve(paths.appSrc, "redux"),
       Reducers: path.resolve(paths.appSrc, "redux", "reducers"),
       Actions: path.resolve(paths.appSrc, "redux", "actions"),
-      Utils: path.resolve(paths.appSrc, "utils")
+      Utils: path.resolve(paths.appSrc, "utils"),
+      Services: path.resolve(paths.appSrc, "services")
     }
   },
   module: {

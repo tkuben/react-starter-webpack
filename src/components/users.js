@@ -12,7 +12,7 @@ export default () => {
 
      return (
          <>
-            {loading ? "Loading..." : error ? error.message : users.map(u => <h3 key={u.name}>{u.name}</h3>)}
+            {loading ? "Loading..." : error ? error.message : users.map(u => <h3 key={u.first_name}>{u.first_name} ({u.email})</h3>)}
          </>
      );
 };

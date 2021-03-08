@@ -8,4 +8,6 @@ const middleware = [thunk];
 
 const composeEnhancers = (process.env.NODE_ENV === "development") ? composeWithDevTools : compose;
 
-export default createStore(rootReducer, {}, composeEnhancers(applyMiddleware(...middleware)));
+const store = createStore(rootReducer, {}, composeEnhancers(applyMiddleware(...middleware)));
+
+export default store;
