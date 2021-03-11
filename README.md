@@ -35,3 +35,7 @@ API_CLIENT_ID=<application client id from api>
 API_CLIENT_SECRET=<application client secret from api>
 FB_APP_ID=<facebook app id>
 GOOGLE_CLIENT_ID=<google client id>
+
+
+### Conventions
+imports are aliased, so if you see a relative path that starts with an uppercase, please refer to config/webpack-common-config to see where it points to. 

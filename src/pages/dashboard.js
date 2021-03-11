@@ -1,17 +1,56 @@
-import React from 'react'
-import style from 'Styles/dashboard.scss'
+import React, { useEffect } from 'react';
+import {
+    Route,
+    Switch,
+  useRouteMatch
+  } from 'react-router-dom';
 
-import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+// core components
+import DashboardNavBar from 'Components/Navbars/DashboardNavBar.js';
+import Sidebar from 'Components/Sidebar/Sidebar.js';
 
+import styles from "Assets/jss/components/dashboardStyle.js";
+import routes from 'SrcRoot/routes.js';
 
-const Dashboard = () => {
+const switchRoutes = (
+  <>
+    {routes.map((prop, _) => {
+      if (prop.layout === "/dashboard" && prop.path !== '/dashboard') {
+        const path = prop.layout + prop.path;
+        return (
+          <Route
+            path={prop.layout + prop.path}
+            key={path}
+          >
+            <prop.component />
+          </Route>
+        );
+      }
+      return null;
+    })}
+  </>
+);
+
+const useStyles = makeStyles(styles);
+
+const Dashboard = function() {
+    const classes = useStyles();
+    let { path } = useRouteMatch();    
     return (
-        <div className={style.dashboard}>
-            <Button variant="contained" color="secondary">
-                Dashboard
-            </Button>
+        <div className={classes.wrapper}>
+            <DashboardNavBar />
+            <Sidebar />
+            <Switch>
+              <Route exact path={path}>
+                  <h3>Please select a topic.</h3>
+              </Route>
+              {switchRoutes}
+            </Switch>
         </div>
     )
 }
+
+
 
 export default Dashboard;

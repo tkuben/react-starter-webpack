@@ -14,6 +14,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(common, {
     entry: [paths.appIndexJs],
+    output: {
+        path: paths.appBuild,
+        publicPath: "/",
+        filename: 'bundle.js'
+    },
     mode: "development",
     // devtool option controls if and how source maps are generated.
     // see https://webpack.js.org/configuration/devtool/
@@ -75,7 +80,6 @@ module.exports = merge(common, {
     devServer: {
         port: 7070,
         hot: true,
-        open: true,
         inline: true,
         historyApiFallback: true,
         contentBase: paths.appSrc,

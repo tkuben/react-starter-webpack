@@ -3,7 +3,6 @@ import cookieStorageService from 'Services/storage/cookieStorage';
 
 axios.interceptors.request.use(
   config => {
-    console.log('configure axios');
       const token = cookieStorageService.getAccessToken();
       if (token) {
           config.headers['Authorization'] = 'Bearer ' + token;
@@ -22,8 +21,6 @@ axios.interceptors.response.use(
       return response;
     },
     async function (error) {
-      const originalRequest = error;
-      console.log(originalRequest);
       if (typeof error.response === "undefined") {
         alert("a server error happNeD, we will fix it shortly");
         return Promise.reject(error);
@@ -41,6 +38,7 @@ axios.interceptors.response.use(
         cookieStorageService.getRefreshToken() !== undefined
       ) {
         const refreshToken = cookieStorageService.getRefreshToken();
+        cookieStorageService.clearToken();
         return axios
           .post(`${process.env.API_URL}token`, {
             client_id: process.env.API_CLIENT_ID,
@@ -54,7 +52,11 @@ axios.interceptors.response.use(
             axiosInstance.defaults.headers["Authorization"] =
               "Bearer " + response.data.access_token;
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {            
+            console.log(err);
+            alert('Your login session seems to be expired. Please login again');
+            cookieStorageService._clearToken();
+          });
       }
     }
 );
