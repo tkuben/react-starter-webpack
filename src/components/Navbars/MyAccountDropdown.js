@@ -62,7 +62,7 @@ export default function MyAccountDropdown() {
         >
             <Avatar alt={user && user.first_name && user.first_name.charAt(0).toUpperCase()} />
             <Typography component="h6">
-                {user.first_name}
+                {user && user.first_name}
             </Typography>            
         </IconButton>
         <Menu
