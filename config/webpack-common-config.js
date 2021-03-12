@@ -33,6 +33,7 @@ module.exports = {
       Actions: path.resolve(paths.appSrc, "redux", "actions"),
       Utils: path.resolve(paths.appSrc, "utils"),
       Services: path.resolve(paths.appSrc, "services"),
+      Assets: path.resolve(paths.appSrc, "assets")
     }
   },
   module: {

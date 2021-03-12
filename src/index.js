@@ -15,6 +15,7 @@ import store from 'Redux/store'
 import theme from './theme';
 
 import HomePage from 'Pages/HomePage'
+import LoginPage from 'Pages/LoginPage'
 import Dashboard from 'Pages/Dashboard'
 import PageNotFound from 'Pages/404'
 
@@ -27,12 +28,9 @@ ReactDOM.render(
       <CssBaseline />
       <Router history={history}>
         <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </Router>
     </ThemeProvider>

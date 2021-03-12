@@ -11,7 +11,10 @@ const HomePage = () => {
   return (
   <div className={classes.container}>
     Home Page
+    <br />
     <Link to="/dashboard">Go to dashboard</Link>
+    <br />
+    <Link to="/login">Login</Link>
   </div>);
 }; 
 
