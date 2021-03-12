@@ -7,19 +7,20 @@ import AppBar from '@material-ui/core/AppBar';
 import MenuItem from '@material-ui/core/MenuItem';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MoreIcon from '@material-ui/icons/MoreVert';
 
+import MyAccountDropdown from 'Components/Navbars/MyAccountDropdown.js';
 import styles from 'Assets/jss/components/homepageNavbarStyle.js';
 import logo from 'Assets/images/logo.png';
+import useAuth from 'Hooks/useAuth.js';
+
 
 const useStyles = makeStyles(styles);
 
-const DashboardNavBar = (props) => {
+const HomePageNavbar = () => {
     const classes = useStyles();
+    const user = useAuth('', false) || {};
 
-    const { color } = props;
+    console.log('USER', user);
 
     return (
         <Container maxWidth="lg">
@@ -29,16 +30,18 @@ const DashboardNavBar = (props) => {
                         <img src={logo} className={classes.logo} />
                     </Link>
                     <div className={classes.grow} />
-                    <AccountCircle />
-                    <Link to="/login" className={classes.navbarLinks}>
-                        <MenuItem style={{ paddingLeft: 13 }}>
-                            My Account
-                        </MenuItem>                        
-                    </Link>
+                    {user && user.first_name ?
+                        <MyAccountDropdown /> : 
+                        <Link to="/login" className={classes.navbarLinks}>
+                            <MenuItem>
+                                Login
+                            </MenuItem>                        
+                        </Link>
+                    }
                 </Toolbar>
             </AppBar>
         </Container>
     );
 }
 
-export default DashboardNavBar;
+export default HomePageNavbar;

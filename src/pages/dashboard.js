@@ -37,7 +37,7 @@ const useStyles = makeStyles(styles);
 
 const Dashboard = function() {
     const classes = useStyles();
-    const { user } = useAuth() || {};
+    const user = useAuth() || {};
     let { path } = useRouteMatch();    
     return (
         <div className={classes.wrapper}>

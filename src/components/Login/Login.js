@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
 import ReactFacebookLogin from "react-facebook-login";
 import { TiSocialFacebook } from "react-icons/ti";
@@ -27,15 +28,20 @@ const useStyles = makeStyles(styles);
 const Login = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    let history = useHistory();
     const { register, handleSubmit, errors } = useForm();
     const { user } = useSelector(state => state.userReducer ) || {};
 
     function responseFb(response) {
-        dispatch(registerUser(response, 'facebook'));
+        dispatch(registerUser(response, 'facebook')).then(() => {
+            history.push('/dashboard')
+        });
     }
 
     function responseGoogle(response) {
-        dispatch(registerUser(response, 'google-oauth2'));
+        dispatch(registerUser(response, 'google-oauth2')).then(() => {
+            history.push('/dashboard')
+        });
     }
 
     const onSubmit = data => {

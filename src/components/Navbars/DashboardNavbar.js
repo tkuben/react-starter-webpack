@@ -17,14 +17,13 @@ import NotificationsActiveOutlinedIcon from '@material-ui/icons/NotificationsAct
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import styles from 'Assets/jss/components/navbarStyle.js';
+import MyAccountDropdown from 'Components/Navbars/MyAccountDropdown.js';
 import logo from 'Assets/images/logo.png';
 
 const useStyles = makeStyles(styles);
 
 const DashboardNavBar = (props) => {
     const classes = useStyles();
-
-    const { color } = props;
 
     return (
         <div className={classes.grow}>
@@ -48,14 +47,7 @@ const DashboardNavBar = (props) => {
                         inputProps={{ 'aria-label': 'search' }}
                         />
                     </div>
-                    <IconButton
-                    edge="end"
-                    aria-label="account of current user"
-                    aria-haspopup="true"
-                    color="inherit"
-                    >
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                    </IconButton>
+                    <MyAccountDropdown />                    
                     <IconButton aria-label="show 17 new notifications" color="inherit">
                     <Badge badgeContent={17} color="secondary">
                         <NotificationsActiveOutlinedIcon />
