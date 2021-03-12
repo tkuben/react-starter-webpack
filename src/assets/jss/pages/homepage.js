@@ -1,9 +1,6 @@
 const homepageStyle = () => ({
-container: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"        
-}
+    container: {
+    }
 });
 
 export default homepageStyle;

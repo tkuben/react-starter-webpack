@@ -262,6 +262,11 @@ const cardLink = {
   }
 };
 
+const navbarLinks = {
+  textDecoration: 'none',
+  color: grayColor[0]
+};
+
 export {
   hexToRgb,
   //variables
@@ -298,5 +303,6 @@ export {
   title,
   cardTitle,
   cardSubtitle,
-  cardLink
+  cardLink,
+  navbarLinks
 };

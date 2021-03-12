@@ -26,13 +26,13 @@ module.exports = {
     alias: {
       SrcRoot: paths.appSrc,
       Components: path.resolve(paths.appSrc, "components"),
-      Containers: path.resolve(paths.appSrc, "containers"),
       Pages: path.resolve(paths.appSrc, "pages"),
       Redux: path.resolve(paths.appSrc, "redux"),
       Reducers: path.resolve(paths.appSrc, "redux", "reducers"),
       Actions: path.resolve(paths.appSrc, "redux", "actions"),
       Utils: path.resolve(paths.appSrc, "utils"),
       Services: path.resolve(paths.appSrc, "services"),
+      Hooks: path.resolve(paths.appSrc, "hooks"),
       Assets: path.resolve(paths.appSrc, "assets")
     }
   },

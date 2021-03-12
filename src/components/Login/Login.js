@@ -80,7 +80,7 @@ const Login = () => {
                                 </Grid>
                             </Grid>
                             <Grid container spacing={4} justify="center" className={classes.loginDivider}>
-                                <Grid item xs={12} justify="center">
+                                <Grid item xs={12}>
                                     <hr />
                                     <span>OR</span>
                                 </Grid>

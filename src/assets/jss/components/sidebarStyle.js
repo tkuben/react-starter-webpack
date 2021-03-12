@@ -1,3 +1,4 @@
+import { navbarLinks } from 'Assets/jss/global.js';
 import { drawerWidth } from 'Assets/jss/global.js';
 
 export default (theme) => ({
@@ -24,4 +25,5 @@ export default (theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing(3),
       },
+      navbarLinks
 });

@@ -1,3 +1,5 @@
+import { navbarLinks } from 'Assets/jss/global.js';
+
 import { fade } from '@material-ui/core/styles';
 
 import {

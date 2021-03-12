@@ -24,7 +24,7 @@ export default function TemporaryDrawer() {
   const list = () => (
     <>
       <List>
-        <NavLink to="/dashboard" activeClassName="active" key="dashboard">
+        <NavLink to="/dashboard" activeClassName="active" key="dashboard"  className={classes.navbarLinks}>
             <ListItem button>
                 <ListItemIcon><SvgIcon component={Dashboard} /></ListItemIcon>
                 <ListItemText primary="Dashboard" />
@@ -36,6 +36,7 @@ export default function TemporaryDrawer() {
                     to={prop.layout + prop.path}
                     activeClassName="active"
                     key={key}
+                    className={classes.navbarLinks}
                 >
                     <ListItem button key={prop.name}>
                         <ListItemIcon><SvgIcon component={prop.icon} /></ListItemIcon>

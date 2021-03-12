@@ -51,7 +51,6 @@ export const registerUser = (oauthResponse, provider) => async dispatch => {
 
 
 export const logoutUser = ()  => async dispatch => {
-    console.log('DISPATCH', dispatch);
     cookieStorageService.logoutUser();
     dispatch({
         type: LOGOUT_USER,
